@@ -1,0 +1,86 @@
+/* This code contains the method to obtain information about the max number of an array and return it. The language is C# */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Max
+{
+    class Program
+    {
+
+        //method to find the greatest number and return the information
+
+        static Tuple<int, int, List<int>> informationAboutTheGreatest(int[] v)
+        {
+            int greatest = v[0]; 
+            int appearances = 0;
+            List<int> indexs = new List<int>();
+            for (int i = 0; i < v.Length; i++)
+            {
+                if (v[i] > greatest)
+                {
+                    greatest = v [i];                    
+                }
+            }
+
+            for(int i= 0; i<v.Length; i++)
+            {
+                if (v[i] == greatest)
+                {
+                    appearances +=1;
+                    index.Add(i);
+                }
+            }
+
+             return new Tuple<int, int, List<int>>(greatest, appearances, index); 
+ 
+        }
+        
+    //method to show array
+        static void showArray(int[] v)
+        {
+            foreach(int value in v) 
+        { 
+            Console.Write(value + " "); 
+        } 
+        Console.WriteLine("");
+        }
+
+    //method to show list
+
+     static void showList(List<int> list)
+        {
+            foreach(int x in list)
+            {
+                Console.Write(x + " ");
+            }
+            Console.WriteLine(" ");
+        }
+
+
+
+        static void Main(string[] args)
+        {
+            int[] des = {0, 5, 90, 88, 90, 100, -2, 30, 100, 4, 2, 100, 34}; //example
+            Console.Write(" The array is: " );
+            showArray(des);
+            var tuple = informationAboutTheGreatest(des);
+            Console.WriteLine("The greatest number is "+ tuple.Item1 + " appears " + tuple.Item2 + " times, on the following index:"  );
+            showList(tuple.Item3);
+            
+        
+           
+           
+
+
+
+
+
+
+        }
+    }
+}
